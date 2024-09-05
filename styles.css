@@ -1,0 +1,836 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+  width: 100%;
+  background-color: #f4f7fa;
+  color: #333;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  height: 100%;
+  width: 12%;
+  position: fixed;
+  background-color: #ffffff;
+  border-right: 1px solid lightgrey;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4a90e2;
+  color: #fff;
+  border-bottom: 1px solid lightgrey;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.toggle-btn:hover {
+  color: #333;
+}
+
+.sidebar a {
+  border-radius: 16px;
+  padding: 25px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background-color: #e6f0ff;
+  color: #4a90e2;
+}
+
+.sidebar a i {
+  min-width: 30px;
+  font-size: 20px;
+}
+
+.users {
+  padding-left: 3px;
+}
+
+.sidebar a span {
+  margin-left: 20px;
+}
+
+/* Minimized sidebar */
+.sidebar.closed {
+  width: 70px;
+}
+
+.sidebar.closed .sidebar-header h2 {
+  display: none;
+}
+
+.sidebar.closed a {
+  justify-content: center;
+}
+
+.sidebar.closed a span {
+  display: none;
+}
+
+/* Main Content */
+#main {
+  width: 88%;
+  transition: 0.3s;
+  padding: 2%;
+  margin-left: 12%;
+  height: 100%;
+}
+
+.sidebar.closed ~ #main {
+  margin-left: 3%;
+  width: 97%;
+}
+
+/* User Management Section */
+.content-section {
+  height: 100%;
+  width: 100%;
+}
+.user-management {
+  height: 5%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user-management h1 {
+  font-size: 26px;
+  color: black;
+}
+
+.add-user {
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-user button {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.add-user button i {
+  margin-right: 10px;
+}
+
+.add-user button:hover {
+  background-color: #357abd;
+}
+
+.no-users {
+  text-align: center;
+  font-style: italic;
+}
+
+/* User Table */
+#userTable {
+  height: 85%;
+  overflow-y: auto;
+}
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.user-table th,
+.user-table td {
+  padding: 15px;
+  border: 1px solid lightgrey;
+  text-align: center;
+}
+
+.user-table th {
+  background-color: #4a90e2;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.user-table tbody tr:hover {
+  background-color: #e6f0ff;
+}
+
+.user-table .actions {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.user-table .actions button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #4a90e2;
+  font-size: 18px;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  height: 55%;
+  width: 25%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.modal-head {
+  height: 15%;
+  padding-top: 5%;
+  display: flex;
+}
+
+.modal-heading {
+  width: 90%;
+  padding-left: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeModal {
+  width: 10%;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.formMessage {
+  height: 3%;
+  padding-left: 6%;
+}
+
+.form {
+  height: 67%;
+  padding: 2% 6% 3% 6%;
+}
+
+.modal label {
+  display: block;
+  margin-bottom: 2%;
+}
+
+.modal input {
+  width: 100%;
+  padding: 3%;
+  margin-bottom: 5%;
+  border: 1px solid lightgrey;
+  border-radius: 12px;
+}
+
+.modal-buttons {
+  height: 15%;
+  padding-bottom: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modal button {
+  border: none;
+  font-size: 16px;
+  padding: 3% 5%;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#addUser {
+  background-color: #28a745;
+  color: white;
+}
+
+#addUser:hover {
+  background-color: #218838;
+}
+
+#updateUser {
+  background-color: #28a745;
+  color: white;
+}
+
+#updateUser:hover {
+  background-color: #218838;
+}
+
+#resetUserForm {
+  color: #343a40;
+  background-color: #ffc107;
+}
+
+#resetUserForm:hover {
+  background-color: #e0a800;
+}
+
+#closeUserModal:hover {
+  color: #d32f2f;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+/* Group Management Section */
+.group-management {
+  height: 5%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.group-management h1 {
+  font-size: 26px;
+  color: black;
+}
+
+.add-group {
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.group-management .groups-list {
+  margin-bottom: 20px;
+}
+
+.create-btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 25px 7px 5px;
+  margin-bottom: 25px;
+}
+
+.create-btn button {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.create-btn button i {
+  margin-right: 10px;
+}
+
+.create-btn button:hover {
+  background-color: #357abd;
+}
+
+/* Group Table */
+#groupTable{
+  height: 85%;
+  overflow-y: auto;
+}
+
+.group-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.group-table th,
+.group-table td {
+  padding: 15px;
+  border: 1px solid lightgrey;
+  text-align: center;
+}
+
+.group-table th {
+  background-color: #4a90e2;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.group-table tbody tr:hover {
+  background-color: #e6f0ff;
+}
+
+.no-groups {
+  text-align: center;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+.group-table .actions {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.group-table .actions button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #4a90e2;
+  font-size: 16px;
+}
+
+#groupModal {
+  height: 100%;
+  width: 100%;
+}
+
+#groupModal .modal-content {
+  height: 35%;
+  width: 25%;
+  padding: 1%;
+}
+
+#groupModal .modal-head {
+  height: 30%;
+  padding: 0%;
+}
+
+#groupModal .modal-heading {
+  width: 90%;
+}
+
+#groupModal .closeModal {
+  width: 5%;
+}
+#groupModal .closeModal:hover {
+  color: #d32f2f;
+}
+
+#groupModal .formMessage {
+  height: 10%;
+}
+
+#groupModal .form {
+  height: 60%;
+}
+
+#createGroupForm {
+  height: 100%;
+  width: 100%;
+}
+.create-label {
+  height: 30%;
+}
+
+.create-input {
+  height: 30%;
+}
+
+#groupName {
+  padding: 3%;
+  margin-bottom: 0%;
+}
+.create-group {
+  height: 40%;
+  padding-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.create-group button {
+  background-color: #28a745;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-group button:hover {
+  background-color: #218838;
+}
+
+#addUsersModal .modal-content {
+  height: 50%;
+  width: 25%;
+  padding: 1%;
+}
+
+#addUsersModal .modal-head {
+  height: 15%;
+}
+
+#addUsersModal .modal-heading {
+  width: 90%;
+  padding-left: 5%;
+}
+
+#addUsersModal .closeModal:hover {
+  color: #d32f2f;
+}
+
+#addUsersModal .formMessage {
+  height: 5%;
+}
+
+#addUsersModal .form {
+  height: 65%;
+}
+
+#addUsersForm {
+  height: 100%;
+  width: 100%;
+}
+
+#addUsersModal label {
+  height: 10%;
+  margin-bottom: 0%;
+}
+
+#addUsersModal #selectUsersContainer{
+  height: 90%;
+  padding: 3%;
+  overflow-y:auto;
+  padding-inline: 4%;
+}
+
+#addUsersModal .checkboxContainer {
+  height: 20%;
+}
+
+#addUsersModal .listItem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#addUsersModal .listItem span {
+  width: 90%;
+}
+
+#addUsersModal .listItem input[type="checkbox"] {
+  width: 10%;
+  margin: 0%;
+}
+
+#addUsersModal .modal-buttons [type="button"] {
+  background-color: #28a745;
+  color: white;
+}
+
+#addUsersModal .modal-buttons [type="button"]:hover {
+  background-color: #218838;
+}
+
+/* Role Management Section */
+.role-management {
+  height: 5%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.role-management h1 {
+  font-size: 26px;
+  color: black;
+}
+
+.add-role {
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.role-management .roles-list {
+  margin-bottom: 20px;
+}
+
+.create-btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 25px 7px 5px;
+  margin-bottom: 25px;
+}
+
+.create-btn button {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.create-btn button i {
+  margin-right: 10px;
+}
+
+.create-btn button:hover {
+  background-color: #357abd;
+}
+
+/* Role Table */
+#roleTable {
+  height: 85%;
+  overflow-y: auto;
+}
+
+.role-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.role-table th,
+.role-table td {
+  padding: 15px;
+  border: 1px solid lightgrey;
+  text-align: center;
+}
+
+.role-table th {
+  background-color: #4a90e2;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.role-table tbody tr:hover {
+  background-color: #e6f0ff;
+}
+
+.no-roles {
+  text-align: center;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+.role-table .actions {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.role-table .actions button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #4a90e2;
+  font-size: 16px;
+}
+
+#roleModal {
+  height: 100%;
+  width: 100%;
+}
+
+#roleModal .modal-content {
+  height: 50%;
+  width: 25%;
+  padding: 1%;
+}
+
+#roleModal .modal-head {
+  height: 15%;
+  padding: 5%;
+}
+
+#roleModal .modal-heading {
+  width: 95%;
+}
+
+#roleModal .closeModal {
+  width: 5%;
+}
+
+#roleModal .closeModal:hover {
+  color: #d32f2f;
+}
+
+#roleModal .formMessage {
+  height: 10%;
+}
+
+#roleModal .form {
+  height: 60%;
+}
+
+#createRoleForm {
+  height: 100%;
+  width: 100%;
+}
+
+#roleModal label{
+  height: 10%;
+}
+
+#roleName{
+  padding: 3%;
+  height: 15%;
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+#roleDescription {
+  padding: 3%;
+  height: 40%;
+  width: 100%;
+  margin-bottom: 25%;
+}
+
+.create-role {
+  height: 40%;
+  padding-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#addRole{
+  background-color: #28a745;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#addRole:hover {
+  background-color: #218838;
+}
+
+#resetRoleForm {
+  color: #343a40;
+  background-color: #ffc107;
+}
+
+#resetRoleForm:hover {
+  background-color: #e0a800;
+}
+
+#assignsModal .modal-content {
+  height: 60%;
+  width: 30%;
+}
+
+#assignModal .modal-head {
+  height: 15%;
+}
+
+#assignModal .modal-heading {
+  width: 90%;
+  padding-left: 0%;
+}
+
+#assignModal .closeModal:hover {
+  color: #d32f2f;
+}
+
+#assignModal .form {
+  height: 65%;
+}
+
+#assignModal .formMessage {
+  height: 5%;
+}
+
+#assignForm{
+  height: 100%;
+  width: 100%;
+}
+
+#assignModal label {
+  height: 10%;
+  margin-bottom: 0;
+}
+
+#selectRoleContainer{
+  height: 90%;
+  overflow-y: auto;
+  padding-inline: 4%;
+}
+
+#assignModal .checkboxContainer {
+  height: 20%;
+}
+
+#assignModal .listItem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#assignModal .listItem span {
+  width: 90%;
+}
+
+#assignModal .listItem input[type="checkbox"] {
+  width: 10%;
+  margin: 0%;
+}
+
+#assignModal .modal-buttons [type="button"] {
+  background-color: #28a745;
+  color: white;
+}
+
+#assignModal .modal-buttons [type="button"]:hover {
+  background-color: #218838;
+}

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management System</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h2 id="sidebar-heading">MENU</h2>
+          <button class="toggle-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="tabs">
+          <div class="tab" data-tab-id="userManagement" id="users-tab">
+            <a href="#"><i class="fas fa-user"></i><span>USERS</span></a>
+          </div>
+          <div class="tab" data-tab-id="groupManagement" id="groups-tab">
+            <a href="#"><i class="fas fa-users"></i><span>GROUPS</span></a>
+          </div>
+          <div class="tab" data-tab-id="roleManagement" id="roles-tab">
+            <a href="#"><i class="fas fa-user-shield"></i><span>ROLES</span></a>
+          </div>
+        </div>
+      </div>
+      <div id="main">
+        <!-- User Management Section -->
+        <div id="userManagement" class="content-section">
+          <div class="user-management">
+            <h1 id="main-heading">USER MANAGEMENT</h1>
+          </div>
+          <div class="add-user">
+            <div class="users-list">
+              <h2>Users List</h2>
+            </div>
+            <div class="alert"></div>
+            <div class="create-btn">
+              <button id="createUserBtn">
+                <i class="fas fa-user-plus"></i>CREATE USER
+              </button>
+            </div>
+          </div>
+          <div class="table" id="userTable">
+            <table class="user-table">
+              <thead id="table-head">
+                <tr class="table-row">
+                  <th id="userId">USER ID</th>
+                  <th id="userName">USERNAME</th>
+                  <th id="emailId">EMAIL ID</th>
+                  <th id="firstName">FIRST NAME</th>
+                  <th id="lastName">LAST NAME</th>
+                  <th id="actions">ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="userModal" class="modal hidden">
+            <div class="modal-content">
+              <div class="modal-head">
+                <div class="modal-heading">
+                  <h2 id="userModalHeading">CREATE USER</h2>
+                </div>
+                <div class="closeModal">
+                  <h4 id="closeUserModal">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                  </h4>
+                </div>
+              </div>
+              <div class="formMessage">
+                <p id="userFormMessage"></p>
+              </div>
+              <div class="form">
+                <form id="addUserForm">
+                  <label for="username"
+                    ><sup
+                      ><i
+                        class="fa fa-asterisk"
+                        style="font-size: 10px; color: red"
+                      ></i
+                    ></sup>
+                    USERNAME :</label
+                  >
+                  <input type="text" id="username" name="username" required />
+                  <label for="email"
+                    ><sup
+                      ><i
+                        class="fa fa-asterisk"
+                        style="font-size: 10px; color: red"
+                      ></i
+                    ></sup>
+                    EMAIL ID :</label
+                  >
+                  <input type="email" id="email" name="email" required />
+                  <label for="firstName"
+                    ><sup
+                      ><i
+                        class="fa fa-asterisk"
+                        style="font-size: 10px; color: red"
+                      ></i
+                    ></sup>
+                    FIRST NAME :</label
+                  >
+                  <input type="text" id="firstname" name="firstname" required />
+                  <label for="lastName"
+                    ><sup
+                      ><i
+                        class="fa fa-asterisk"
+                        style="font-size: 10px; color: red"
+                      ></i
+                    ></sup>
+                    LAST NAME :</label
+                  >
+                  <input type="text" id="lastname" name="lastname" required />
+                </form>
+              </div>
+              <div class="modal-buttons">
+                <button id="addUser" type="submit">Add User</button>
+                <button id="resetUserForm" type="button">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group Management Section -->
+        <div id="groupManagement" class="content-section hidden">
+          <div class="group-management">
+            <h1 id="main-heading">GROUP MANAGEMENT</h1>
+          </div>
+          <div class="add-group">
+            <div class="groups-list">
+              <h2>Groups List</h2>
+            </div>
+            <div class="alert"></div>
+            <div class="create-btn">
+              <button id="createGroupBtn">
+                <i class="fas fa-users"></i>CREATE GROUP
+              </button>
+            </div>
+          </div>
+          <div class="table" id="groupTable">
+            <table class="group-table">
+              <thead id="table-head">
+                <tr class="table-row">
+                  <th>GROUP NAME</th>
+                  <th>USERS</th>
+                  <th>ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="groupModal" class="modal hidden">
+            <div class="modal-content">
+              <div class="modal-head">
+                <div class="modal-heading">
+                  <h2 id="groupModalHeading">CREATE GROUP</h2>
+                </div>
+                <div class="closeModal">
+                  <h4 id="closeGroupModal">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                  </h4>
+                </div>
+              </div>
+              <div class="formMessage">
+                <p id="groupFormMessage"></p>
+              </div>
+              <div class="form">
+                <form id="createGroupForm">
+                  <div class="create-label">
+                    <label for="groupName"
+                      ><sup
+                        ><i
+                          class="fa fa-asterisk"
+                          style="font-size: 10px; color: red"
+                        ></i
+                      ></sup>
+                      GROUP NAME :</label
+                    >
+                  </div>
+                  <div class="create-input">
+                    <input
+                      type="text"
+                      id="groupName"
+                      name="groupName"
+                      required
+                    />
+                  </div>
+                  <div class="create-group">
+                    <button type="submit">Create Group</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add Users to Group Modal -->
+          <div id="addUsersModal" class="modal hidden">
+            <div class="modal-content">
+              <div class="modal-head">
+                <div class="modal-heading">
+                  <h2 id="addUsersModalHeading">ADD USERS TO GROUP</h2>
+                </div>
+                <div class="closeModal">
+                  <h4 id="closeAddUsersModal">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                  </h4>
+                </div>
+              </div>
+              <div class="formMessage">
+                <p id="addUsersFormMessage"></p>
+              </div>
+              <div class="form">
+                <form id="addUsersForm">
+                  <label for="selectUsers"
+                    ><sup
+                      ><i
+                        class="fa fa-asterisk"
+                        style="font-size: 10px; color: red"
+                      ></i
+                    ></sup>
+                    SELECT USERS :</label
+                  >
+                  <div id="selectUsersContainer"></div>
+                </form>
+              </div>
+              <div class="modal-buttons">
+                <button id="addSelectedUsers" type="button">Add Users</button>
+                <button
+                  id="removeSelectedUsers"
+                  type="button"
+                  style="display: none"
+                >
+                  Remove Users
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <!-- Role Management Section -->
+        <div id="roleManagement" class="content-section hidden">
+          <div class="role-management">
+            <h1 id="main-heading">ROLE MANAGEMENT</h1>
+          </div>
+          <div class="add-role">
+            <div class="roles-list">
+              <h2>Roles List</h2>
+            </div>
+            <div class="alert"></div>
+            <div class="create-btn">
+              <button id="createRoleBtn">
+                <i class="fas fa-user-shield"></i>CREATE ROLE
+              </button>
+            </div>
+          </div>
+          <div class="table" id="roleTable">
+            <table class="role-table">
+              <thead id="table-head">
+                <tr class="table-row">
+                  <th>ROLE NAME</th>
+                  <th>DESCRIPTION</th>
+                  <th>USERS</th>
+                  <th>GROUPS</th>
+                  <th>ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="roleModal" class="modal hidden">
+            <div class="modal-content">
+              <div class="modal-head">
+                <div class="modal-heading">
+                  <h2 id="roleModalHeading">CREATE ROLE</h2>
+                </div>
+                <div class="closeModal">
+                  <h4 id="closeRoleModal">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                  </h4>
+                </div>
+              </div>
+              <div class="formMessage">
+                <p id="roleFormMessage"></p>
+              </div>
+              <div class="form">
+                <form id="createRoleForm">
+                  <label for="roleName"
+                    ><sup
+                      ><i
+                        class="fa fa-asterisk"
+                        style="font-size: 10px; color: red"
+                      ></i
+                    ></sup>
+                    ROLE NAME :</label
+                  >
+                  <input type="text" id="roleName" name="roleName" required />
+                  <label for="roleDescription"
+                    ><sup
+                      ><i
+                        class="fa fa-asterisk"
+                        style="font-size: 10px; color: red"
+                      ></i
+                    ></sup>
+                    DESCRIPTION :</label
+                  >
+                  <textarea
+                    id="roleDescription"
+                    name="roleDescription"
+                    rows="3"
+                    required
+                  ></textarea>
+                </form>
+              </div>
+              <div class="modal-buttons">
+                <button id="addRole" type="submit">Create Role</button>
+                <button id="resetRoleForm" type="button">Reset</button>
+              </div>
+            </div>
+          </div>
+          <!-- Assign Users to Role Modal -->
+          <div id="assignModal" class="modal hidden">
+            <div class="modal-content">
+              <div class="modal-head">
+                <div class="modal-heading">
+                  <h2 id="assignModalHeading">ASSIGN USERS TO ROLE</h2>
+                </div>
+                <div class="closeModal">
+                  <h4 id="closeAssignModal">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                  </h4>
+                </div>
+              </div>
+              <div class="formMessage">
+                <p id="assignFormMessage"></p>
+              </div>
+              <div class="form">
+                <form id="assignForm">
+                  <label id="assignLabel" for="selectRoleContainer">
+                    <sup>
+                      <i
+                        class="fa fa-asterisk"
+                        style="font-size: 10px; color: red"
+                      ></i>
+                    </sup>
+                    SELECT USERS :
+                  </label>
+                  <div id="selectRoleContainer"></div>
+                </form>
+              </div>
+              <div class="modal-buttons">
+                <button id="assignSelected" type="button">Assign</button>
+                <button id="removeSelected" type="button" style="display: none">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
